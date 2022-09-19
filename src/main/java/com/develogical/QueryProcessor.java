@@ -15,9 +15,23 @@ public class QueryProcessor {
             return "Angela";
         }
         if (query.toLowerCase().contains("plus")) {
-            query = query.substring("what is ".length(), query.length());
+            int startIndex = query.indexOf("what", 0);
+            query = query.substring(startIndex + "what is ".length(), query.length());
             String[] a = query.split(" plus ");
             return Integer.toString(Integer.parseInt(a[0]) + Integer.parseInt(a[1]));
+        }
+        if (query.toLowerCase().contains("largest")) {
+            int startIndex = query.indexOf("which", 0);
+            query = query.substring(startIndex + "which of the following is the largest: ".length(), query.length());
+            String[] a = query.split(", ");
+
+            int max = Integer.MIN_VALUE;
+            for (int i = 0; i < a.length; i++) {
+                if (Integer.parseInt(a[i]) > max) {
+                    max = Integer.parseInt(a[i]);
+                }
+            }
+            return Integer.toString(max);
         }
         return "";
     }
