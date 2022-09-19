@@ -44,4 +44,9 @@ public class QueryProcessorTest {
     public void knowsLargest() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 20, 30, 50"), containsString("50"));
     }
+
+    @Test
+    public void knowsSqCb() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 484, 64"), containsString("64"));
+    }
 }

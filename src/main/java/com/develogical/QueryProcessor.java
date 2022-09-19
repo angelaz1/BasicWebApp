@@ -33,6 +33,26 @@ public class QueryProcessor {
             }
             return Integer.toString(max);
         }
+        if (query.toLowerCase().contains("square")) {
+            int startIndex = query.indexOf("which", 0);
+            query = query.substring(startIndex + "which of the following numbers is both a square and a cube: ".length(), query.length());
+            String[] a = query.split(", ");
+
+            String result = "";
+            for (int i = 0; i < a.length; i++) {
+                int x = Integer.parseInt(a[i]);
+                int sq = (int)Math.floor(Math.sqrt(x));
+                int cb = (int)Math.floor(Math.cbrt(x));
+                if (sq * sq == x && cb*cb*cb == x) {
+                    result += Integer.toString(x) + ", ";
+                }
+            }
+
+            if (result.length() > 0)  {
+                result = result.substring(0, result.length() - 2);
+            }
+            return result;
+        }
         return "";
     }
 }
