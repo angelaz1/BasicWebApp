@@ -22,7 +22,7 @@ public class QueryProcessor {
         }
         if (query.toLowerCase().contains("largest")) {
             int startIndex = query.indexOf("which", 0);
-            query = query.substring(startIndex + "which of the following is the largest: ".length(), query.length());
+            query = query.substring(startIndex + "which of the following numbers is the largest: ".length(), query.length());
             String[] a = query.split(", ");
 
             int max = Integer.MIN_VALUE;
