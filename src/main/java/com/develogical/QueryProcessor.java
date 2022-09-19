@@ -20,6 +20,12 @@ public class QueryProcessor {
             String[] a = query.split(" plus ");
             return Integer.toString(Integer.parseInt(a[0]) + Integer.parseInt(a[1]));
         }
+        if (query.toLowerCase().contains("multiplied")) {
+            int startIndex = query.indexOf("what", 0);
+            query = query.substring(startIndex + "what is ".length(), query.length());
+            String[] a = query.split(" multiplied by ");
+            return Integer.toString(Integer.parseInt(a[0]) * Integer.parseInt(a[1]));
+        }
         if (query.toLowerCase().contains("largest")) {
             int startIndex = query.indexOf("which", 0);
             query = query.substring(startIndex + "which of the following numbers is the largest: ".length(), query.length());
