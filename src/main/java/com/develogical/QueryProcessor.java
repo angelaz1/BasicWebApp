@@ -11,6 +11,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("honk")) {
             return "Honk! Honk honk honk honk honk!!!";
         }
+        if (query.toLowerCase().contains("what is your name")) {
+            return "Angela";
+        }
         return "";
     }
 }
